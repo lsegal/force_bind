@@ -6,8 +6,8 @@ SPEC = Gem::Specification.new do |s|
   s.author        = "Loren Segal"
   s.email         = "lsegal@soen.ca"
   s.homepage      = "http://github.com/lsegal/bind_class"
-  s.files         = ['bind_class.c', 'extconf.rb', 'Rakefile', 'README']
-  s.extensions    = ['extconf.rb']
+  s.files         = ['ext/bind_class.c', 'ext/extconf.rb', 'Rakefile', 'README']
+  s.extensions    = ['ext/extconf.rb']
   s.has_rdoc      = 'yard'
   #s.rubyforge_project = 'bind_class'
 end
