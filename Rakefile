@@ -1,6 +1,9 @@
 require 'rubygems'
 require 'rake/gempackagetask'
 
+WINDOWS = (PLATFORM =~ /win32|cygwin/ ? true : false) rescue false
+SUDO = WINDOWS ? '' : 'sudo'
+
 load 'bind_class.gemspec'
 Rake::GemPackageTask.new(SPEC) do |pkg|
   pkg.gem_spec = SPEC
@@ -11,5 +14,5 @@ end
 desc "Install the gem locally"
 task :install => :package do 
   sh "#{SUDO} gem install pkg/#{SPEC.name}-#{SPEC.version}.gem --local"
-  sh "rm -rf pkg/yard-#{SPEC.version}" unless ENV['KEEP_FILES']
+  sh "rm -rf pkg/#{SPEC.name}-#{SPEC.version}" unless ENV['KEEP_FILES']
 end
