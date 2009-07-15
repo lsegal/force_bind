@@ -1,0 +1,3 @@
+= bind_class
+
+Adds UnboundMethod#bind_class to bind an unbound method to class
