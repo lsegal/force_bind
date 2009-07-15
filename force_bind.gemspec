@@ -8,6 +8,6 @@ SPEC = Gem::Specification.new do |s|
   s.homepage      = "http://github.com/lsegal/force_bind"
   s.files         = %w(Rakefile README ext/force_bind.c ext/extconf.rb test/test_force_bind.rb)
   s.extensions    = ['ext/extconf.rb']
-  s.has_rdoc      = 'yard'
+  s.has_rdoc      = false
   #s.rubyforge_project = 'force_bind'
 end
