@@ -1,3 +1,4 @@
-= bind_class
+= force_bind
 
-Adds UnboundMethod#bind_class to bind an unbound method to class
+Adds UnboundMethod#force_bind to bind an unbound method to class (or any object of any type).
+It basically bypasses the argument type checking that #bind has.

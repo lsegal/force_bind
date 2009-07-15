@@ -9,7 +9,7 @@ struct METHOD {
 };
 
 static VALUE
-umethod_bind_class(VALUE method, VALUE recv)
+umethod_force_bind(VALUE method, VALUE recv)
 {
     struct METHOD *data, *bound;
 
@@ -17,13 +17,13 @@ umethod_bind_class(VALUE method, VALUE recv)
     method = Data_Make_Struct(rb_cMethod, struct METHOD, free, -1, bound);
     *bound = *data;
     bound->recv = recv;
-    bound->rclass = RCLASS(recv);
+    bound->rclass = TYPE(recv) == T_CLASS ? RCLASS(recv) : CLASS_OF(recv);
 
     return method;
 }
 
 void
-Init_bind_class()
+Init_force_bind()
 {
-    rb_define_method(rb_cUnboundMethod, "bind_class", umethod_bind_class, 1);
+    rb_define_method(rb_cUnboundMethod, "force_bind", umethod_force_bind, 1);
 }
