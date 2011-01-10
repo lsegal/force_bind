@@ -3,6 +3,10 @@
 Adds UnboundMethod#force_bind to bind an unbound method to class (or any object of any type).
 It basically bypasses the argument type checking that #bind has.
 
+== Requirements
+
+ * Ruby 1.9.1 or greater (does not work in Ruby 1.8.x)
+
 == Example
 
 Bind an instance method to its class (making it act like a class method):
