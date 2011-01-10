@@ -11,6 +11,10 @@ struct METHOD {
 	rb_method_entry_t me;
 };
 
+/*
+ * Similar to +UnboundMethod#bind+, but forces the bind regardless of the type.
+ * @return [Method]
+ */
 VALUE
 umethod_force_bind(VALUE method, VALUE recv)
 {
@@ -58,4 +62,7 @@ void
 Init_force_bind()
 {
 	rb_define_method(rb_cUnboundMethod, "force_bind", umethod_force_bind, 1);
+#if 0
+	rb_cUnboundMethod = rb_define_class("UnboundMethod", rb_cObject); /* for docs */
+#endif
 }

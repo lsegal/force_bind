@@ -5,34 +5,34 @@ It basically bypasses the argument type checking that #bind has.
 
 == Requirements
 
- * Ruby 1.9.1 or greater (does not work in Ruby 1.8.x)
+* Ruby 1.9.1 or greater (does not work in Ruby 1.8.x)
 
 == Example
 
 Bind an instance method to its class (making it act like a class method):
 
-    class Foo
-      def bar
-        puts "I'm inside #{self}"
-      end
+  class Foo
+    def bar
+      puts "I'm inside #{self}"
     end
-    
-    Foo.new.bar
-    #=> "I'm inside #<Foo:0x123456>"
-    
-    meth = Foo.instance_method(:bar).force_bind(Foo)
-    meth.call
-    #=> "I'm inside Foo"
+  end
+  
+  Foo.new.bar
+  #=> "I'm inside #<Foo:0x123456>"
+  
+  meth = Foo.instance_method(:bar).force_bind(Foo)
+  meth.call
+  #=> "I'm inside Foo"
     
 You can also use this to rebind the instance method of any object to any
 other object:
 
-    class A
-      def foo; self end
-    end
-    
-    class B; end
-    
-    meth = A.instance_method(:foo).force_bind(B.new)
-    meth.call
-    #=> #<B:0x123456>
+  class A
+    def foo; self end
+  end
+  
+  class B; end
+  
+  meth = A.instance_method(:foo).force_bind(B.new)
+  meth.call
+  #=> #<B:0x123456>
