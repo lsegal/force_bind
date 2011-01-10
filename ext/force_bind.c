@@ -15,7 +15,7 @@ VALUE
 umethod_force_bind(VALUE method, VALUE recv)
 {
 	struct METHOD *data, *bound;
-	rb_data_type_t *type;
+	const rb_data_type_t *type;
 	
 	type = RTYPEDDATA_TYPE(method);
 	TypedData_Get_Struct(method, struct METHOD, type, data);
