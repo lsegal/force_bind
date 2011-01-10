@@ -1,5 +1,5 @@
 require 'test/unit'
-require File.dirname(__FILE__) + '/../force_bind'
+require_relative '../ext/force_bind'
 
 class Mock
   def the_method; self end

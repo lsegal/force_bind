@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/../ext/force_bind"
+require_relative '../ext/force_bind'
 
 class Foo
   def bar
