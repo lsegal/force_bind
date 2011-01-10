@@ -17,5 +17,5 @@ end
 
 desc 'Build the extension'
 task :build do
-  sh "cd ext && make"
+  sh "cd ext && ruby extconf.rb && make"
 end
