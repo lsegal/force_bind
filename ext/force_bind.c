@@ -52,7 +52,7 @@ umethod_force_bind(VALUE method, VALUE recv)
 	return method;
 }
 
-#endif /* !RUBY191 */
+#endif /* RUBY192_OR_GREATER */
 
 void
 Init_force_bind()
